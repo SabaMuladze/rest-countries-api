@@ -1,0 +1,22 @@
+<template>
+  <the-header></the-header>
+</template>
+
+<script>
+import TheHeader from "./components/TheHeader.vue";
+export default {
+  components: {
+    TheHeader,
+  },
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap");
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+</style>
