@@ -15,12 +15,26 @@
 
 <script>
 import { mapGetters } from "vuex";
+import data from "../../data.json";
 export default {
+  data() {
+    return {
+      name: this.$route.query.name,
+      cardData: data,
+    };
+  },
+  methods: {},
   computed: {
     ...mapGetters(["darkMode"]),
     dark() {
       return this.darkMode;
     },
+  },
+  mounted() {
+    this.cardData = this.cardData.filter(
+      (details) => details.name == this.name
+    );
+    console.log(this.cardData);
   },
 };
 </script>

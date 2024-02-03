@@ -17,9 +17,13 @@
       <div
         class="w-full flex flex-wrap justify-center gap-[36px] bg-[#fafafa] dark:bg-[#202C36] md:gap-[56px]"
       >
-        <div
+        <router-link
+          :to="{
+            path: '/inner',
+            query: { name: country.name },
+          }"
           class="w-[264px] h-[336px] bg-white mt-6 rounded-md cursor-pointer dark:bg-[#2B3844] hover:scale-110 transition-all"
-          v-for="(country, index) in originalData"
+          v-for="(country, index) in cardData"
           :key="country.name"
         >
           <img class="h-[160px] w-full" :src="country?.flags.png" alt="" />
@@ -31,7 +35,7 @@
               <p class="leading-6">Capital: {{ country.capital }}</p>
             </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </section>
   </div>
@@ -43,19 +47,19 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      cardData: data,
-      originalData: [],
+      cardData: [],
+      originalData: data,
       val: "",
     };
   },
   methods: {
     filterCountries() {
       if (this.val.length > 0) {
-        this.originalData = this.cardData.filter((country) =>
+        this.cardData = this.originalData.filter((country) =>
           country.name.toLowerCase().includes(this.val)
         );
       } else {
-        this.originalData = this.cardData;
+        this.cardData = this.originalData;
       }
     },
   },
@@ -66,7 +70,7 @@ export default {
     },
   },
   mounted() {
-    this.originalData = this.cardData;
+    this.cardData = this.originalData;
   },
 };
 </script>
