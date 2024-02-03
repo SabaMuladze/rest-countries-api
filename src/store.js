@@ -2,11 +2,25 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state() {
-    return;
+    return {
+      darkMode: false,
+    };
   },
-  getters: {},
-  actions: {},
-  mutations: {},
+  getters: {
+    darkMode(state) {
+      return state.darkMode;
+    },
+  },
+  actions: {
+    setDarkMode(context) {
+      context.commit("toggleDarkMode");
+    },
+  },
+  mutations: {
+    toggleDarkMode(state) {
+      return (state.darkMode = !state.darkMode);
+    },
+  },
 });
 
 export default store;
