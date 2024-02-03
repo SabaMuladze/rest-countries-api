@@ -1,7 +1,7 @@
 <template>
   <div :class="{ dark: dark }">
     <header
-      class="flex justify-between py-10 px-6 items-center shadow-md dark:bg-[#2B3844]"
+      class="flex justify-between py-10 px-6 items-center shadow-md dark:bg-[#2B3844] md:px-14"
     >
       <div>
         <h1 class="dark:text-white cursor-pointer">Where in the world?</h1>
