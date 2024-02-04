@@ -1,7 +1,9 @@
 <template>
   <div :class="{ dark: dark }">
     <section class="min-h-[100vh] w-full bg-[#fafafa] dark:bg-[#202C36]">
-      <div class="w-full px-4 py-3">
+      <div
+        class="w-full px-4 py-3 flex flex-col gap-3 md:flex-row md:justify-between"
+      >
         <div
           class="px-4 py-3 bg-white rounded-md dark:bg-[#2B3844] md:w-[480px]"
         >
@@ -12,6 +14,53 @@
             type="text"
             @input="filterCountries"
           />
+        </div>
+        <div>
+          <div
+            @click="toggleRegion"
+            class="px-4 py-3 w-[200px] bg-white rounded-md dark:bg-[#2B3844] flex gap-5 items-center justify-between"
+          >
+            <p>Filter By Region</p>
+            <i
+              :class="{ 'rotate-180': Region }"
+              class="fa-solid fa-angle-down transition-all dark:text-white"
+            ></i>
+          </div>
+          <div
+            v-if="Region"
+            class="px-4 py-3 bg-white rounded-md dark:bg-[#2B3844] w-[200px] absolute flex flex-col gap-5 justify-center mt-3"
+          >
+            <p
+              class="cursor-pointer hover:scale-105"
+              @click="filterByRegion('Africa')"
+            >
+              Africa
+            </p>
+            <p
+              class="cursor-pointer hover:scale-105"
+              @click="filterByRegion('America')"
+            >
+              America
+            </p>
+            <p
+              class="cursor-pointer hover:scale-105"
+              @click="filterByRegion('Asia')"
+            >
+              Asia
+            </p>
+            <p
+              class="cursor-pointer hover:scale-105"
+              @click="filterByRegion('Europe')"
+            >
+              Europe
+            </p>
+            <p
+              class="cursor-pointer hover:scale-105"
+              @click="filterByRegion('Oceania')"
+            >
+              Oceania
+            </p>
+          </div>
         </div>
       </div>
       <div
@@ -50,17 +99,26 @@ export default {
       cardData: [],
       originalData: data,
       val: "",
+      Region: false,
     };
   },
   methods: {
     filterCountries() {
       if (this.val.length > 0) {
         this.cardData = this.originalData.filter((country) =>
-          country.name.toLowerCase().includes(this.val)
+          country.name.toLowerCase().includes(this.val.toLowerCase())
         );
       } else {
         this.cardData = this.originalData;
       }
+    },
+    toggleRegion() {
+      this.Region = !this.Region;
+    },
+    filterByRegion(region) {
+      this.cardData = this.originalData.filter(
+        (country) => country.region == region
+      );
     },
   },
   computed: {
