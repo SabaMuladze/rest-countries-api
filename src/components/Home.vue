@@ -38,7 +38,7 @@
             </p>
             <p
               class="cursor-pointer hover:scale-105"
-              @click="filterByRegion('America')"
+              @click="filterByRegion('Americas')"
             >
               America
             </p>
