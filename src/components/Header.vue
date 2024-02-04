@@ -31,10 +31,5 @@ export default {
       return this.darkMode;
     },
   },
-  mounted() {
-    console.log(this.darkMode);
-  },
 };
 </script>
-
-<style scoped></style>

@@ -126,10 +126,6 @@ export default {
     this.cardData = this.cardData.filter(
       (details) => details.alpha3Code == this.name
     );
-    console.log(this.cardData[0].borders);
-  },
-  watch: {
-    $route(to, from) {},
   },
 };
 </script>
