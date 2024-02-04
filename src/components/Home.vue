@@ -20,7 +20,7 @@
         <router-link
           :to="{
             path: '/inner',
-            query: { name: country.name },
+            query: { name: country.alpha3Code },
           }"
           class="w-[264px] h-[336px] bg-white mt-6 rounded-md cursor-pointer dark:bg-[#2B3844] hover:scale-110 transition-all"
           v-for="(country, index) in cardData"
