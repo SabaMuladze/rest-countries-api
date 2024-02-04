@@ -1,12 +1,10 @@
-
 {
-    "routes": [
-    { "src": "^/.*", "dest": "./index.html" },
-    { "src": "/", "dest":"./src/components/Home.vue" },
-    { "src": "/home", "dest":"./src/components/Home.vue"},
-    {"src": "/inner", "dest": "./src/components/Inner.vue"}
-    ]
-  },
-  
+  "routes": [
+    { "src": "^/.*", "dest": "/index.html" },
+    { "src": "/home", "dest": "/src/components/Home.vue" },
+    { "src": "/inner", "dest": "/src/components/Inner.vue" }
+  ]
+}
+
 
   
