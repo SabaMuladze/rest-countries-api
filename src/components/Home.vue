@@ -19,7 +19,7 @@
       >
         <router-link
           :to="{
-            path: '/inner/',
+            path: '/inner',
             query: { name: country.alpha3Code },
           }"
           class="w-[264px] h-[336px] bg-white mt-6 rounded-md cursor-pointer dark:bg-[#2B3844] hover:scale-110 transition-all"

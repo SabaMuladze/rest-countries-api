@@ -5,7 +5,7 @@ import Inner from "./components/Inner.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", redirect: "/home" },
+    { path: "/", component: Home },
     { path: "/home", component: Home },
     { path: "/inner", component: Inner },
   ],
